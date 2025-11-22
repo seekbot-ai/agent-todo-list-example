@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-sqlalchemy
-httpx
-openai
-pytest

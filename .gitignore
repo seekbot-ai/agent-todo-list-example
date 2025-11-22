@@ -215,3 +215,9 @@ __marimo__/
 # IDE
 .idea/
 .vscode/
+
+# Node
+node_modules/
+
+# uv
+.venv/

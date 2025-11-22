@@ -1,0 +1,22 @@
+[project]
+name = "agent-todo-list"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.121.3",
+    "uvicorn>=0.38.0",
+    "sqlalchemy>=2.0.44",
+    "httpx>=0.28.1",
+    "openai>=2.8.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=9.0.1",
+]
