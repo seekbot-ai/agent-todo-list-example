@@ -3,7 +3,8 @@ def swagger_to_tools(spec):
     for path, methods in spec.get("paths",{}).items():
         clean=path.strip("/")
         for method,info in methods.items():
-            name=f"{method}__{clean.replace('/','_')}"
+            # Remove invalid characters from tool name
+            name=f"{method}__{clean.replace('/','_').replace('{','').replace('}','')}"
             schema={"type":"object","properties":{}, "required":[]}
 
             for p in info.get("parameters",[]):

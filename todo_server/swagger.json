@@ -1,1 +1,129 @@
-{"openapi": "3.0.0", "paths": {}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Todo API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/todos": {
+      "get": {
+        "summary": "List all todos",
+        "responses": {
+          "200": {
+            "description": "List of todos"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new todo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The todo title"
+                  },
+                  "done": {
+                    "type": "boolean",
+                    "description": "Whether the todo is completed",
+                    "default": false
+                  }
+                },
+                "required": ["title"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created todo"
+          }
+        }
+      }
+    },
+    "/todos/{id}": {
+      "get": {
+        "summary": "Get a todo by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Todo ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The todo"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a todo by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Todo ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The todo title"
+                  },
+                  "done": {
+                    "type": "boolean",
+                    "description": "Whether the todo is completed"
+                  }
+                },
+                "required": ["title", "done"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated todo"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a todo by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Todo ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    }
+  }
+}
